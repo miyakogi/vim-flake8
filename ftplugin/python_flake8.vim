@@ -73,10 +73,11 @@ if !exists("*Flake8()")
         " open cwindow
         let has_results=getqflist() != []
         if has_results
-            execute 'belowright copen'
-            setlocal wrap
-            nnoremap <buffer> <silent> c :cclose<CR>
-            nnoremap <buffer> <silent> q :cclose<CR>
+            " execute 'belowright copen'
+            " setlocal wrap
+            " nnoremap <buffer> <silent> c :cclose<CR>
+            " nnoremap <buffer> <silent> q :cclose<CR>
+			execute 'Unite quickfix -no-quit -winheight=10'
         endif
 
         set nolazyredraw
@@ -88,6 +89,8 @@ if !exists("*Flake8()")
             echohl Green
             echon "Flake8 check OK"
             echohl
+			execute 'Unite quickfix -no-quit -winheight=10'
+			execute 'quit'
         endif
     endfunction
 endif
