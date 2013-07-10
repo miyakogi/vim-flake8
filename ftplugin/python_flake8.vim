@@ -77,7 +77,7 @@ if !exists("*Flake8()")
             " setlocal wrap
             " nnoremap <buffer> <silent> c :cclose<CR>
             " nnoremap <buffer> <silent> q :cclose<CR>
-			execute 'Unite quickfix -no-quit -winheight=10'
+			execute 'Unite quickfix -no-quit -direction=botright -winheight=10 -buffer-name=quickfix'
         endif
 
         set nolazyredraw
@@ -89,8 +89,8 @@ if !exists("*Flake8()")
             echohl Green
             echon "Flake8 check OK"
             echohl
-			execute 'Unite quickfix -no-quit -winheight=10'
-			execute 'quit'
+			execute 'UniteClose quickfix'
+			" execute 'quit'
         endif
     endfunction
 endif
