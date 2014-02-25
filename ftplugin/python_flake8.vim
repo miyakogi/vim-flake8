@@ -85,9 +85,9 @@ if !exists("*Flake8()")
 
         if has_results == 0
             " Show OK status
-            hi Green ctermfg=green
-            echohl Green
-            echon "Flake8 check OK"
+			hi PEP8Green term=reverse ctermfg=white ctermbg=green guifg=#fefefe guibg=#00cc00 gui=bold
+            echohl PEP8Green
+            echon " - Flake8 check OK - "
             echohl
 			execute 'UniteClose quickfix'
 			" execute 'quit'
