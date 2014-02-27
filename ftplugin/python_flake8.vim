@@ -55,11 +55,6 @@ function! Flake8()
 		let s:flake8_loc_close_cmd = "cclose"
 	endif
 
-	" perform the grep itself
-	" let &grepformat="%f:%l:%c: %m\,%f:%l: %m"
-	" let &grepprg=s:flake8_cmd.s:flake8_builtins_opt.s:flake8_ignores.s:flake8_max_line_length.s:flake8_max_complexity
-	" silent! grep! %
-
 	let l:filepath = expand('%')
 	let s:flake8_cmd = s:flake8_cmd . s:flake8_ignores .
 					    \ s:flake8_max_line_length . ' ' . l:filepath
@@ -83,7 +78,6 @@ function! Flake8()
 	if len(s:loc_list) > 0
 		call setloclist(0, s:loc_list)
 		execute s:flake8_loc_open_cmd
-		" execute
 	else
 		" Show OK status
 		hi PEP8Green term=reverse ctermfg=white ctermbg=green guifg=#fefefe guibg=#00cc00 gui=bold
@@ -97,8 +91,4 @@ function! Flake8()
 	redraw!
 endfunction
 
-" Add mappings, unless the user didn't want this.
-" The default mapping is registered under to <F7> by default, unless the user
-" remapped it already (or a mapping exists already for <F7>)
 command! Flake8 call Flake8()
-" noremap <buffer> <F7> :call Flake8()<CR>
