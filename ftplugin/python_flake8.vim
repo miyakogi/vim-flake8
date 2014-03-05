@@ -80,15 +80,15 @@ function! Flake8()
 		execute s:flake8_loc_open_cmd
 	else
 		" Show OK status
+		execute s:flake8_loc_close_cmd
 		hi PEP8Green term=reverse ctermfg=white ctermbg=green guifg=#fefefe guibg=#00cc00 gui=bold
 		echohl PEP8Green
 		echon " - PEP8 check OK - "
 		echohl
-		execute s:flake8_loc_close_cmd
 	endif
 
 	set nolazyredraw
-	redraw!
+	redraw
 endfunction
 
 command! Flake8 call Flake8()
